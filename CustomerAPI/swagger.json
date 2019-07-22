@@ -1,0 +1,58 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "CustomerAPI",
+    "version" : "1.0.0",
+    "description" : "CustomerAPI"
+  },
+  "paths" : {
+    "/customer/{id}" : {
+      "get" : {
+        "operationId" : "getId",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful.",
+            "schema" : {
+              "$ref" : "#/definitions/Customer"
+            }
+          }
+        },
+        "produces" : [ "application/json" ],
+        "description" : "Retrieve id",
+        "parameters" : [ {
+          "required" : true,
+          "name" : "id",
+          "in" : "path",
+          "type" : "string"
+        }, {
+          "name" : "accept",
+          "in" : "header",
+          "type" : "string"
+        } ]
+      }
+    }
+  },
+  "basePath" : "/customerapi/v1",
+  "definitions" : {
+    "Customer" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "contact" : {
+          "type" : "string"
+        },
+        "organization" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

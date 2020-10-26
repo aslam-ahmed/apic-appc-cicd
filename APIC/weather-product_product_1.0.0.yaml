@@ -1,0 +1,22 @@
+product: 1.0.0
+info:
+  name: weather-product
+  title: Weather-Product
+  version: 1.0.0
+visibility:
+  view:
+    enabled: true
+    type: public
+    tags: []
+    orgs: []
+  subscribe:
+    enabled: true
+    type: authenticated
+    tags: []
+    orgs: []
+apis:
+  weather-provider-api:
+    $ref: weather-provider-api_1.0.0.yaml
+plans:
+  default:
+    title: Default Plan

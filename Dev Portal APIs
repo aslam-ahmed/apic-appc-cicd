@@ -1,0 +1,63 @@
+Dev Portal APIs
+---------------
+
+api_key=xBbtiKrAqHc4a2bMXsKcUFeC1T0s8EF-2yAG92J6aDmV
+
+
+Get Developer Organizations
+---------------------------
+curl -u aryanengineer@yahoo.com:Passw0rd -X GET \
+	-H 'Content-Type: application/json' \
+	-H "X-IBM-APIManagement-Context: aslamahmedoutlookcom-dev.sb" \
+	https://apimanager.us-south.apiconnect.cloud.ibm.com:443/v1/portal/orgs
+
+Get Public Products
+-------------------
+curl -X GET \
+	-H 'Content-Type: application/json' \
+	-H "X-IBM-APIManagement-Context: aslamahmedoutlookcom-dev.sb" \
+	https://apimanager.us-south.apiconnect.cloud.ibm.com:443/v1/portal/products/5f96e4f90cf24dd459ff7953
+
+Create App
+----------
+curl -X POST \
+-u aryanengineer@yahoo.com:Passw0rd \
+-H 'Content-Type: application/json' \
+-H "X-IBM-APIManagement-Context: aslamahmedoutlookcom-dev.sb" \
+-d '        
+    {
+       "name": "weather-test-app",
+       "appImageURL": "",
+       "credentials": 
+       {
+          "clientID": 'true',
+          "clientSecret": 'true',
+          "description": ""
+       }
+       ,
+       "description": "",
+       "oauthRedirectURI": "",
+       "public": true
+    }
+    
+   ' \
+https://apimanager.us-south.apiconnect.cloud.ibm.com:443/v1/portal/orgs/5f9b6eee0cf24dd45a41be51/apps
+
+
+Create Subscription
+--------------------
+curl -X POST \
+-u aryanengineer@yahoo.com:Passw0rd \
+-H 'Content-Type: application/json' \
+-H "X-IBM-APIManagement-Context: aslamahmedoutlookcom-dev.sb" \
+-d '        
+	{
+	  "product": {
+	    "name": "weather-product",
+	    "version": "1.0.0"
+	  },
+	  "plan": "default"
+	}
+    
+   ' \
+https://apimanager.us-south.apiconnect.cloud.ibm.com:443/v1/portal/orgs/5f9b6eee0cf24dd45a41be51/apps/5f9b7a480cf24dd45a41c484/subscriptions
